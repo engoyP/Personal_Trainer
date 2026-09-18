@@ -201,6 +201,28 @@ NHS / WHO / 国家体育科研所 / 中国疾控 等，加上 2026-09-18 为「�
 
 ## 启动
 
+### 首次安装（clone 后做一次）
+
+```bash
+# 1. 后端依赖（需要 Python 3.11）
+cd backend
+python -m venv .venv
+.venv/Scripts/python.exe -m pip install -r requirements.txt
+# crawl4ai 的浏览器内核；装不上会自动降级到 httpx 后端，不影响主功能
+.venv/Scripts/python.exe -m playwright install chromium
+
+# 2. 前端依赖
+cd ../frontend && npm install
+
+# 3. 配置（.env 不入库，从模板复制后填自己的值）
+cd ../backend && cp .env.example .env
+#    至少填 LLM_API_KEY（DeepSeek）；要用关键词爬取再填 BOCHA_API_KEY
+```
+
+首次启动会在 `data/` 下自动建库并灌入源清单，无需手动建表。
+
+### 日常启动
+
 **后端**（Python 3.11 venv）
 
 ```bash
@@ -217,6 +239,7 @@ npm run dev
 
 - 前端：http://127.0.0.1:5173
 - 后端 API 文档：http://127.0.0.1:8000/docs
+- 一键启动四个服务：双击根目录 `start_all.bat`（Windows）
 
 **识图录入服务（可选，端口 8200）** —— 给「手动录入」加一个「从截图识别」按钮，
 用 EasyOCR 从华为分享海报里抽汇总数字，识别结果展示核对后再落库。**不依赖它也能用**
