@@ -1,0 +1,52 @@
+# ---- 敏感配置（API key 等，绝不入库）----
+.env
+backend/.env
+*.env.local
+
+# ---- Python 虚拟环境 ----
+.venv/
+backend/.venv/
+backend/ocr_venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ---- 前端 ----
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+
+# ---- 用户数据（隐私：运动记录 / 图片 / 上传）----
+data/
+backend/data/
+*.db
+*.db.bak-*
+*.sqlite3
+
+# ---- 模型权重（体积大，自行下载）----
+backend/easyocr_models/
+*.pth
+*.pt
+*.onnx
+*.bin
+.cache/
+models/
+
+# ---- 日志 ----
+*.log
+logs/
+
+# ---- IDE / 编辑器 / 工具 ----
+.idea/
+.vscode/
+.workbuddy/
+.DS_Store
+Thumbs.db
+
+# ---- 临时产物 ----
+*.tmp
+*.bak
+tmp/

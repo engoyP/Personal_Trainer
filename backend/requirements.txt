@@ -1,0 +1,20 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+sqlalchemy==2.0.36
+pydantic==2.10.4
+pydantic-settings==2.7.0
+python-multipart==0.0.20
+python-dateutil==2.9.0.post0
+gpxpy==1.6.2
+numpy==1.26.4
+langgraph>=0.2.0
+langchain-core>=0.3.0
+
+# 知识库爬取
+# 注意：crawl4ai 依赖的 unclecode-litellm 要求 openai>=2.8，
+# 所以 openai 会被顶到 3.x。chat.completions 接口没变，与 DeepSeek 兼容（已实测）。
+openai>=3.13.0
+crawl4ai>=0.9.3
+
+# crawl4ai 的浏览器内核要单独装，装不上会自动降级到 httpx 后端：
+#   ./.venv/Scripts/python.exe -m playwright install chromium
